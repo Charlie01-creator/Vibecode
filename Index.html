@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Vibe Content Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            text-align: center;
+            padding: 50px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        select, input, button {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+        img {
+            margin-top: 15px;
+            max-width: 100%;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>✨ AI Vibe Content Generator ✨</h1>
+    <form method="POST">
+        <label for="topic">Enter a topic:</label><br>
+        <input type="text" name="topic" required><br>
+
+        <label for="vibe">Choose a vibe:</label><br>
+        <select name="vibe">
+            <option value="funny">😂 Funny</option>
+            <option value="motivational">💪 Motivational</option>
+            <option value="luxury">💎 Luxury</option>
+            <option value="romantic">❤️ Romantic</option>
+        </select><br>
+
+        <button type="submit">Generate</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <h2>Generated Post:</h2>
+        <p>{{ result }}</p>
+        {% if image_url %}
+            <h3>Generated Image:</h3>
+            <img src="{{ image_url }}" alt="Generated Vibe Image">
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>
